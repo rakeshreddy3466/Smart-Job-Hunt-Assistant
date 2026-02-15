@@ -1,0 +1,333 @@
+{
+  "name": "My workflow 2",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        -96
+      ],
+      "id": "b163b49d-144b-4935-bfcb-81230def16fa",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "resource": "Actor tasks",
+        "operation": "Run task and get dataset",
+        "actorTaskId": {
+          "__rl": true,
+          "value": "V8WdjL6JbUFgAjpCL",
+          "mode": "list",
+          "cachedResultName": "My Job Search",
+          "cachedResultUrl": "https://console.apify.com/actors/tasks/V8WdjL6JbUFgAjpCL/input"
+        },
+        "timeout": {}
+      },
+      "type": "@apify/n8n-nodes-apify.apify",
+      "typeVersion": 1,
+      "position": [
+        128,
+        -96
+      ],
+      "id": "1464cc7a-0f28-4776-ae3d-109452f2e2dc",
+      "name": "Run task and get dataset",
+      "credentials": {
+        "apifyApi": {
+          "id": "QOpsjVmuqXKZz2t1",
+          "name": "Apify account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "maxItems": 5
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        336,
+        -96
+      ],
+      "id": "cb21ccbf-2886-4a2a-b48e-1cebc66feb39",
+      "name": "Limit"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-flash-latest",
+          "mode": "list",
+          "cachedResultName": "models/gemini-flash-latest"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are a professional tech recruiter.\nI am looking for a job. Here is my resume:\n\n\\documentclass[11pt,a4paper]{article}\n\n\\usepackage[empty]{fullpage}\n\\usepackage{titlesec}\n\\usepackage[hidelinks]{hyperref}\n\\usepackage{enumitem}\n\\usepackage{tabularx}\n\\usepackage{fancyhdr}\n\\usepackage{xcolor}\n\n\\pagestyle{fancy}\n\\fancyhf{}\n\\renewcommand{\\headrulewidth}{0pt}\n\n\\addtolength{\\oddsidemargin}{-0.5in}\n\\addtolength{\\textwidth}{1in}\n\\addtolength{\\topmargin}{-.7in}\n\\addtolength{\\textheight}{1.4in}\n\n\\titleformat{\\section}{\\large\\scshape\\raggedright}{}{0em}{}[\\titlerule]\n\n\\begin{document}\n\n\\begin{center}\n\\textbf{\\Huge Timothy Victor Rachuri}\\\nKarlskrona, Sweden | +46 769779846 | \\href{mailto:rtimvictor@gmail.com}{[rtimvictor@gmail.com](mailto:rtimvictor@gmail.com)}\\\n\\href{https://www.linkedin.com/in/timothyvictor/}{LinkedIn} |\n\\href{https://timothyvictor1.carrd.co/}{Portfolio} |\n\\href{https://github.com/TimothyVictor1}{GitHub} |\n\\href{https://calebs.in}{Calebs.in}\n\\end{center}\n\n\\section{Professional Summary}\nAI Engineer and Full Stack Developer with deep expertise in Agentic AI, Machine Learning (MLOps), and Data Science. Specialized in architecting autonomous systems using n8n, LangChain, and LLMs. Proven track record in building end-to-end pipelines from Data Engineering and Model Training to Full Stack Deployment (React/Python). Skilled in developing self-healing infrastructure, optimizing Graph RAG retrieval accuracy, and designing intuitive interfaces for complex AI tools. Passionate about Predictive Analytics, Edge Computing, and solving high-latency challenges in real-time applications.\n\n\\section{Technical Skills}\n\\textbf{AI/ML & Agents:} LangChain, CrewAI, AutoGen, OpenAI API, LlamaIndex, n8n (Workflow Automation), Transformers (BERT, GPT), Computer Vision, NLP, Graph RAG, Fine-tuning, Prompt Engineering\n\n\\textbf{Data Science:} Pandas, NumPy, Scikit-learn, PyTorch, TensorFlow, XGBoost, LightGBM, Time-Series Forecasting, Anomaly Detection, Data Visualization, Jupyter, Hyperparameter Tuning\n\n\\textbf{Full Stack:} Python (FastAPI, Flask, Django), Node.js, React.js, Next.js, TypeScript, Tailwind CSS, RESTful APIs, WebSockets, GraphQL\n\n\\textbf{Data Engineering:} SQL (PostgreSQL), NoSQL (MongoDB), Vector Databases (ChromaDB, Pinecone, Milvus), Redis, RabbitMQ, ETL Pipelines, Kafka (Basic)\n\n\\textbf{DevOps & Cloud:} Docker, Kubernetes, CI/CD, Linux, Git, AWS (EC2, S3, Lambda), Azure, Google Cloud Platform (GCP), MLOps\n\n\\section{Professional Experience}\n\n\\textbf{AI Engineer (Agentic Systems) & Researcher} \\hfill Jan 2026 — Present\\\nTech Concept Lab | Karlskrona, Sweden\n\\begin{itemize}[leftmargin=*]\n\\item Autonomous Workflow Orchestration: Architecting the \"Invisible Engine\" using n8n and LangChain to trigger complex, multi-agent business processes. Designed self-executing workflows that eliminate manual human input for data retrieval and synthesis tasks.\n\\item Agentic AI Development: Deploying \"Crews\" of AI agents utilizing ReAct prompting patterns to decompose high-level objectives into executable sub-tasks, achieving a 40% reduction in process latency.\n\\item Self-Healing Infrastructure: Implemented closed-loop feedback systems where agents autonomously analyze error logs and refactor malformed JSON outputs in real-time.\n\\end{itemize}\n\n\\textbf{Machine Learning Engineer Intern} \\hfill Jun 2025 — Aug 2025\\\nAppleton Innovations | Visakhapatnam, India\n\\begin{itemize}[leftmargin=*]\n\\item NeuraMQ Architecture: Designed and deployed an AI-powered anomaly detection system for IoT brokers, integrating LSTM, Autoencoders, and Isolation Forest models for real-time sensor monitoring.\n\\item Data Pipeline Engineering: Built an end-to-end pipeline: MQTT streaming → data preprocessing → ML inference → FastAPI microservices → PostgreSQL for metric storage.\n\\item Advanced RAG Implementation: Integrated Retrieval-Augmented Generation combining Cohere embeddings, ChatGPT, and Hugging Face Transformers for contextual anomaly explanation and root-cause analysis.\n\\item Scalable Deployment: Deployed microservices using Docker, achieving real-time alerts and modular API endpoints. Delivered a web-based analytics dashboard for live anomaly tracking and AI-generated summaries.\n\\end{itemize}\n\n\\textbf{Founder & Lead Developer} \\hfill 2024 — Present\\\nCalebs Tech (calebs.in) | Visakhapatnam, India\n\\begin{itemize}[leftmargin=*]\n\\item SaaS Product Development: Founded and engineered a scalable tech consultancy platform, delivering custom AI and Full Stack web solutions. Productizing freelance services by building custom AI Agents for lead generation and automated customer support.\n\\item Full Stack Engineering: Managing the entire SDLC, utilizing Next.js for high-performance frontend rendering and Node.js for scalable backend logic on AWS.\n\\end{itemize}\n\n\\textbf{UI/UX Designer} \\hfill May 2024 — Dec 2024\\\nSweya Infotech | Visakhapatnam, India\n\\begin{itemize}[leftmargin=*]\n\\item Hindustan Shipyard Limited (HSL): Designed a secure, defense-sector compliant UI featuring multi-role dashboards, document control, and admin interfaces ensuring GIGW accessibility standards.\n\\item Clappit AI Application: Designed an intuitive AI-powered productivity interface integrating conversational assistants and real-time task visualization.\n\\item Collector’s Dashboard: Designed and implemented a centralized dashboard for district administration, streamlining workflows and improving data-driven decision-making.\n\\item Design-to-Code: Collaborated closely with backend developers to ensure design consistency using Figma and FastAPI integrations.\n\\end{itemize}\n\n\\textbf{UI/UX Designer} \\hfill Dec 2022 — Nov 2023\\\nEduMoon | Visakhapatnam, India\n\\begin{itemize}[leftmargin=*]\n\\item Website UX Optimization: Enhanced the main educational platform website, creating a user-friendly interface that significantly boosted user engagement metrics.\n\\item User Experience Strategy: Leveraged Figma and Adobe tools to restructure the information architecture, improving navigation flow and course discovery for students.\n\\end{itemize}\n\n\\textbf{Freelance Designer & Developer} \\hfill May 2020 — Dec 2022\\\nRemote | Global Clients (UK, US, Canada, Australia)\n\\begin{itemize}[leftmargin=*]\n\\item Global Service Delivery: Managed digital projects for international clients, specializing in brand identity, graphic design, and video editing.\n\\item Brand Identity: Created the iconic logo and visual identity for a-hub (Andhra University Incubation Hub).\n\\end{itemize}\n\n\\section{Key Projects}\n\n\\textbf{n8n Agentic Workflow Suites — Process Automation & Data Enrichment}\n\\begin{itemize}[leftmargin=*]\n\\item HubSpot Lead Finder Agent: Engineered an autonomous agent that scrapes web data to identify leads, performs sentiment analysis, and populates HubSpot CRM with scored opportunities.\n\\item Data Enrichment Engine (Clay Alternative): Developing a high-volume data enrichment workflow using waterfall logic to aggregate data from multiple APIs (LinkedIn, Apollo, Google Search) to construct rich user profiles.\n\\item Self-Healing JSON Pipelines: Designed workflows with \"Loop-on-Error\" logic to autonomously fix JSON formatting errors from LLM outputs.\n\\end{itemize}\n\n\\textbf{Digital Doctor: Audio Diagnostics — Bio-Medical ML}\n\\begin{itemize}[leftmargin=*]\n\\item Acoustic Biomarker Extraction: Developed a screening tool using Librosa to extract 40+ features (Jitter, Shimmer, MFCCs) to detect neuromuscular instability in voice.\n\\item Explainable AI (XAI): Trained a Random Forest Classifier achieving 80% recall, prioritizing model interpretability over black-box deep learning.\n\\item Clinical UI: Deployed a Streamlit interface for real-time visualization of vocal tremors.\n\\end{itemize}\n\n\\textbf{Enterprise ERP System — Full Stack & System Architecture}\n\\begin{itemize}[leftmargin=*]\n\\item Modular Architecture: Architected a scalable ERP system covering Inventory, Finance, and HR silos using React, Node.js, and PostgreSQL.\n\\item Security & Compliance: Implemented Role-Based Access Control (RBAC) and strict ACID compliance for multi-currency financial transactions.\n\\end{itemize}\n\n\\textbf{Visimies: Real-Time Avatar & Voice Agent — Deep Learning & Computer Vision}\n\\begin{itemize}[leftmargin=*]\n\\item Real-Time Lip Syncing: Engineered a deep learning pipeline to map audio phonemes to visual visemes, enabling a realistic lip-syncing avatar to animate in real-time with sub-500ms latency.\n\\item Voice Pipeline Architecture: Orchestrated an asynchronous stream utilizing Whisper (ASR), GPT-4 (LLM), and ElevenLabs (TTS).\n\\end{itemize}\n\n\\textbf{Thesis: Toward a Verification Singularity — AI Safety Research}\n\\begin{itemize}[leftmargin=*]\n\\item Automated Safety Frameworks: Researching the efficiency gap between AI generation and human verification. Developing the Minimum Viable Guardrails (MVG) framework to automate the validation of high-speed AI outputs using hybrid deterministic and semantic checks.\n\\end{itemize}\n\n\\textbf{Deep Learning Climate Forecasting — Time-Series Analysis}\n\\begin{itemize}[leftmargin=*]\n\\item Multivariate Forecasting: Built a weather forecasting system using GRU and LSTM networks on the Jena Climate Dataset, handling 14 different feature inputs with regularization techniques to capture seasonal dynamics.\n\\end{itemize}\n\n\\section{Leadership & Education}\n\n\\textbf{Design Lead, Google Developer Groups (GDG)} \\hfill 2023 — 2025\\\nLed branding for DevFest and IO Extended; conducted technical workshops on bridging Design and Development.\n\n\\textbf{Design Lead, Hult Prize (On Campus)} \\hfill 2023 — 2024\\\nOrchestrated the visual narrative for the world’s largest student startup competition, advising 15+ startup teams.\n\n\\textbf{Blekinge Institute of Technology} \\hfill 2025 — Present\\\nBachelor’s Degree Continuation | Focus: Advanced Software Engineering & AI Security\n\n\\textbf{Andhra University} \\hfill 2022 — 2025\\\nB.Tech in Computer Science (AI & ML) | Focus: Neural Networks, Stochastic Systems\n\n\\end{document}\n\n\n----------------\nJOB DESCRIPTION:\n{{ $json.descriptionText }}\n\n----------------\nTASK:\nAnalyze the job description against my resume.\n1. Give a \"match_score\" between 0 and 100.\n2. Explain the \"reason\" in one short sentence.\n3. Extract the \"company_name\" and \"job_title\".\n\nReturn ONLY valid JSON in this format:\n{\n\"match_score\": 85,\n\"reason\": \"Matches your Python skills but requires more React experience.\",\n\"company_name\": \"Company X\",\n\"job_title\": \"Developer\"\n}"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        768,
+        -96
+      ],
+      "id": "a2f2c488-6927-43ce-8029-f76db18e9dcd",
+      "name": "Message a model",
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "HjCM6qzLYEHglfWA",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// 1. Get the AI's analysis\nconst text = $input.item.json.content.parts[0].text;\nconst cleanText = text.replace(/```json|```/g, '').trim();\nconst aiData = JSON.parse(cleanText);\n\n// 2. Get the original job DIRECTLY from the Loop node\n// (We use .first() because the loop gives us 1 item at a time)\nconst originalJob = $('Loop Over Items').first().json;\n\n// 3. Merge them together\nreturn {\n  ...originalJob,\n  ...aiData\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1104,
+        -96
+      ],
+      "id": "1314c294-b8a9-48b4-b8da-539ff9d12b40",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1-NgO0cNlr9Kj6FHUpYEv8TN3lLo0VbcvmRtHA95KOTk",
+          "mode": "list",
+          "cachedResultName": "Untitled spreadsheet",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1-NgO0cNlr9Kj6FHUpYEv8TN3lLo0VbcvmRtHA95KOTk/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1-NgO0cNlr9Kj6FHUpYEv8TN3lLo0VbcvmRtHA95KOTk/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "company": "={{ $json.companyName }}",
+            "role": "={{ $json.title }}",
+            "score": "={{ $json.match_score }}",
+            "reason": "={{ $json.reason }}",
+            "link": "={{ $json.link }}"
+          },
+          "matchingColumns": [
+            "link"
+          ],
+          "schema": [
+            {
+              "id": "company",
+              "displayName": "company",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "role",
+              "displayName": "role",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "score",
+              "displayName": "score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "reason",
+              "displayName": "reason",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "link",
+              "displayName": "link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1312,
+        -96
+      ],
+      "id": "4d098409-ad6c-4c5f-a1b1-359a021626c4",
+      "name": "Append or update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "czx1z7DBM84bZf9P",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        544,
+        -96
+      ],
+      "id": "0eb9c433-aaa9-4c10-a812-542a3f44cf99",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1472,
+        -112
+      ],
+      "id": "03173aa4-4d41-4aa5-8dd5-3c1a6bf9b62e",
+      "name": "Wait",
+      "webhookId": "ae882e9e-bf36-4f5c-9238-7f45e6d15111"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Run task and get dataset",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run task and get dataset": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Append or update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append or update row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "e1518110-dc52-400b-acca-5404522bce2a",
+  "meta": {
+    "instanceId": "3ad25db5cc071945bd0b98c5d4084c7c3096b08568a5865c8b179525bea59088"
+  },
+  "id": "1ATJRQgAllloe0EeQ6seC",
+  "tags": []
+}
